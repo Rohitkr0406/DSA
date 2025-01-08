@@ -41,5 +41,17 @@ int main() {
     l.erase(l.begin());
     cout<<"After erase size of list is : "<<l.size()<<endl;
   
+
+    list<int> num(l);
+    cout<<"data of num : ";
+    for(int i: num)
+        cout<<i<<" ";
+        cout<<endl;
+    
+    list<int> x(5,200);
+    cout<<"data of x : ";
+    for(int i: x)
+        cout<<i<<" ";
+
     return 0;
 }
