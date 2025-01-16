@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm> // for reverse
+using namespace std;
+
 /*Given an array of characters chars, compress it using the following algorithm:
 
 Begin with an empty string s. For each group of consecutive repeating characters in chars:
@@ -35,7 +39,7 @@ Constraints:
 1 <= chars.length <= 2000
 chars[i] is a lowercase English letter, uppercase English letter, digit, or symbol.*/
 
-class Solution {
+class StringCompressionSolution {
 public:
     int compress(vector<char>& chars) {
         int i = 0;                  // Pointer for traversing the input
