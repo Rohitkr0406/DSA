@@ -62,5 +62,7 @@
     "string": "cpp",
     "format": "cpp",
     "ostream": "cpp"
-  }
+  },
+  "animations.CursorAnimation": true,
+  "animations.UseCursorColorForCursorAnimation": true
 }
