@@ -154,5 +154,6 @@
     "variant": "cpp"
   },
   "animations.CursorAnimation": true,
-  "animations.UseCursorColorForCursorAnimation": true
+  "animations.UseCursorColorForCursorAnimation": true,
+  "github.copilot.editor.enableAutoCompletions": true
 }
