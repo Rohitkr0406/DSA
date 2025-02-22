@@ -69,7 +69,7 @@ Node* recersivereverse2(Node* &head){
     head->next->next = head;
     head->next = NULL;
     return newhead;
-}//
+}
 
 void display(Node* head){
     Node* temp = head;
