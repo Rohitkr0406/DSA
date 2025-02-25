@@ -1,4 +1,5 @@
 #include<iostream>
+#include <unordered_map>
 using namespace std;
 
 class Node{
@@ -19,7 +20,7 @@ void insertnode(Node* &head, int data){
         return;
     }
     Node* temp = head;
-    while(temp->next != head){
+    while(temp->next != NULL && temp->next != head){
         temp = temp->next;
     }
     temp->next = newnode;
@@ -67,16 +68,50 @@ void printlist(Node* head){
     }while(temp != head);
 }
 
-bool checkcircular(Node* head){
+//Using Traversal
+bool checkcircular1(Node* head){
     if(head == NULL){
-        return false;
+        return true;
     }
-    Node* temp = head;
-    while(temp->next != head && temp->next != NULL){
+    Node* temp = head->next;
+    while(temp != NULL && temp != head){
         temp = temp->next;
     }
-    if(temp->next == head){
+    return (temp == head);
+}
+
+
+// Using Hashing
+bool checkcircular2(Node* head){
+    if(head == NULL){
         return true;
+    }
+
+    Node* temp = head;
+    unordered_map<Node*, bool> visited;
+    while(temp != NULL){
+        if(visited[temp]){
+            return true;
+        }
+        visited[temp] = true;
+        temp = temp->next;
+    }
+    return false;
+}
+
+//floyd's cycle approach
+bool checkcircular3(Node* &head){
+    if(head == NULL){
+        return true;
+    }
+    Node* slow = head;
+    Node* fast = head->next;
+    while(fast!= NULL && fast->next!= NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+        if(slow == fast){
+            return true;
+        }
     }
     return false;
 }
@@ -91,7 +126,7 @@ int main(){
     insertnode(head, 5);
     printlist(head);
     cout<<endl;
-    bool iscircular = checkcircular(head);
+    bool iscircular = checkcircular3(head);
     cout<<"Linked List is circular: "<<(iscircular ? "Yes" : "No")<<endl;
     deletenode(head, 1);
     printlist(head);
