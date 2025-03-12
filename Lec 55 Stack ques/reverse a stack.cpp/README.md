@@ -25,7 +25,7 @@ You are given a stack with `N` integers. Your task is to reverse the stack using
 5
 1 2 3 4 5
 ```
-(![](https://files.codingninjas.in/untitled-19-28242.jpg))
+![](https://files.codingninjas.in/untitled-19-28242.jpg)
 
 **Output:**
 ```
