@@ -24,7 +24,4 @@ void reverseStack(stack<int> &s) {
    reverseStack(s);
 
    insertatbottom(s,num);
-
-
-
 }
