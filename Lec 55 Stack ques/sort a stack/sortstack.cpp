@@ -1,31 +1,32 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<stack>
 using namespace std;
+class Stacksort {
+private:
+    void sortedinsert(stack<int>& s, int x) {
+        if (s.empty() || (!s.empty() && x > s.top())) {
+            s.push(x);
+            return;
+        }
 
-void sortedinsert(stack<int>&s, int x){
+        int num = s.top();
+        s.pop();
 
-    if(s.empty() ||(!s.empty() && x > s.top())){
-        s.push(x);
-        return;
+        sortedinsert(s, x);
+
+        s.push(num);
     }
-    
-    int num = s.top();
-    s.pop();
 
-    sortedinsert(s,x);
+public:
+    void sortStack(stack<int>& s) {
+        if (s.empty()) {
+            return;
+        }
 
-    s.push(num);
-    
-}
+        int num = s.top();
+        s.pop();
+        sortStack(s);
 
-void sortStack(stack<int> &s) {
-   if(s.empty()){
-       return;
-   }    
-
-   int num = s.top();
-   s.pop();
-   sortStack(s);
-
-   sortedinsert(s,num);
-
-}
+        sortedinsert(s, num);
+    }
+};
