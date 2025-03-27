@@ -19,9 +19,9 @@ Your task is to determine if there is a celebrity present. If there is, return t
 ### **Input:**
 ```
 N = 3
-M = [[0, 1, 0],
-     [0, 0, 0],
-     [0, 1, 0]]
+M = [[1, 1, 0],
+     [0, 1, 0],
+     [0, 1, 1]]
 ```
 ### **Output:**
 ```
