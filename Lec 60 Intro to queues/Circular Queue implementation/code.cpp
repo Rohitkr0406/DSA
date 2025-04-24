@@ -73,3 +73,40 @@ int main(){
     cout << q.dequeue() << endl; // -1 (queue is empty)
     return 0;
 }
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    CircularQueue cq(5); // Queue of size 5
+
+    // Test: Enqueue elements
+    cout << "Enqueue 10: " << (cq.enqueue(10) ? "Success" : "Failed") << endl;
+    cout << "Enqueue 20: " << (cq.enqueue(20) ? "Success" : "Failed") << endl;
+    cout << "Enqueue 30: " << (cq.enqueue(30) ? "Success" : "Failed") << endl;
+    cout << "Enqueue 40: " << (cq.enqueue(40) ? "Success" : "Failed") << endl;
+    cout << "Enqueue 50: " << (cq.enqueue(50) ? "Success" : "Failed") << endl;
+
+    // Test: Queue is full
+    cout << "Enqueue 60 (Should fail - Queue Full): " << (cq.enqueue(60) ? "Success" : "Failed") << endl;
+
+    // Test: Dequeue elements
+    cout << "Dequeue: " << cq.dequeue() << endl; // 10
+    cout << "Dequeue: " << cq.dequeue() << endl; // 20
+
+    // Test: Enqueue after dequeue (wrap-around case)
+    cout << "Enqueue 60 (Should succeed - Wrap Around): " << (cq.enqueue(60) ? "Success" : "Failed") << endl;
+    cout << "Enqueue 70 (Should succeed - Wrap Around): " << (cq.enqueue(70) ? "Success" : "Failed") << endl;
+
+    // Test: Dequeue remaining elements
+    cout << "Dequeue: " << cq.dequeue() << endl; // 30
+    cout << "Dequeue: " << cq.dequeue() << endl; // 40
+    cout << "Dequeue: " << cq.dequeue() << endl; // 50
+    cout << "Dequeue: " << cq.dequeue() << endl; // 60
+    cout << "Dequeue: " << cq.dequeue() << endl; // 70
+
+    // Test: Queue is empty
+    cout << "Dequeue (Should return -1 - Empty Queue): " << cq.dequeue() << endl;
+
+    return 0;
+}

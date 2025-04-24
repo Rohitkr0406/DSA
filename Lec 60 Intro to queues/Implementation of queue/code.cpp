@@ -1,4 +1,6 @@
-#include <bits/stdc++.h> 
+#include <iostream>
+using namespace std;
+
 class Queue {
     int *arr, infront, rear, size;
 public:
