@@ -22,22 +22,22 @@ class NQueue
                 front[i] = -1;
                 rear[i] = -1;
             }
-        
-            // Destructor to free allocated memory
-            ~NQueue()
-            {
-                delete[] arr;
-                delete[] front;
-                delete[] rear;
-                delete[] next;
-            }
 
             for(int i = 0; i < s; i++) {
                 next[i] = i + 1;
             }
             next[s-1] = -1;
         }
-
+    
+        // Destructor to free allocated memory
+        ~NQueue()
+        {
+            delete[] arr;
+            delete[] front;
+            delete[] rear;
+            delete[] next;
+        }
+        
         // Enqueues 'X' into the Mth queue. Returns true if it gets pushed into the queue, and false otherwise (e.g., when the queue is full and no free spot is available).
         bool enqueue(int x, int m)
         {
@@ -85,4 +85,19 @@ class NQueue
 
             return arr[index];// Return the dequeued element
         }
-    }
+};
+
+int main(){
+    NQueue q(3, 10); // Create 3 queues in an array of size 10
+
+    q.enqueue(1, 1); // Enqueue 1 into queue 1
+    q.enqueue(2, 1); // Enqueue 2 into queue 1
+    q.enqueue(3, 2); // Enqueue 3 into queue 2
+    q.enqueue(4, 3); // Enqueue 4 into queue 3
+
+    cout << q.dequeue(1) << endl; // Dequeue from queue 1 (should return 1)
+    cout << q.dequeue(2) << endl; // Dequeue from queue 2 (should return 3)
+    cout << q.dequeue(3) << endl; // Dequeue from queue 3 (should return 4)
+
+    return 0;
+}
